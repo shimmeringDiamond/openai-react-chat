@@ -6,7 +6,7 @@ import {CHAT_COMPLETIONS_ENDPOINT, MODELS_ENDPOINT} from "../constants/apiEndpoi
 import {ChatSettings} from "../models/ChatSettings";
 import {CHAT_STREAM_DEBOUNCE_TIME, DEFAULT_MODEL} from "../constants/appConstants";
 import {NotificationService} from '../service/NotificationService';
-import { FileData, FileDataRef } from "../models/FileData";
+import { FileDataRef } from "../models/FileData";
 
 interface CompletionChunk {
   id: string;
@@ -134,6 +134,7 @@ export class ChatService {
       model: DEFAULT_MODEL,
       messages: [],
       stream: true,
+      max_tokens: 1024,
     };
 
     if (chatSettings) {
@@ -145,6 +146,15 @@ export class ChatService {
     }
 
     const mappedMessages = await ChatService.mapChatMessagesToCompletionMessages(requestBody.model,messages);
+    let totalCharacters = 0;
+
+    mappedMessages.forEach(message => {
+      totalCharacters += message.content.length;
+    });
+    while ( totalCharacters * (1/Math.E) + 500 > 8000) {
+      totalCharacters -= mappedMessages[1].content.length;
+      mappedMessages.splice(1, 1);
+    }
     requestBody.messages = mappedMessages;
 
     let response: Response;
