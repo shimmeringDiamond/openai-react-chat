@@ -31,7 +31,7 @@ export interface OpenAIModelListResponse {
 }
 
 export const modelDetails: { [modelId: string]: { contextWindowSize: number, knowledgeCutoffDate: string, imageSupport: boolean, preferred: boolean, deprecated: boolean } } = {
-  "gpt-4-turbo": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023", imageSupport: true, preferred: true, deprecated: false},
+  "gpt-4-turbo": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023", imageSupport: true, preferred: false, deprecated: false},
   "gpt-4-turbo-2024-04-09": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023",  imageSupport: true, preferred: false, deprecated: false},
   "gpt-4-turbo-preview": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023", imageSupport: false,  preferred: false, deprecated: false},
   "gpt-4-0125-preview": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023",  imageSupport: false, preferred: false, deprecated: true},
@@ -50,5 +50,7 @@ export const modelDetails: { [modelId: string]: { contextWindowSize: number, kno
   "gpt-3.5-turbo-instruct-0914": {contextWindowSize: 4096, knowledgeCutoffDate: "9/2021", imageSupport: false, preferred: false, deprecated: true},
   "gpt-3.5-turbo-16k": {contextWindowSize: 16385, knowledgeCutoffDate: "9/2021", imageSupport: false, preferred: false, deprecated: true},
   "gpt-3.5-turbo-0613": {contextWindowSize: 4096, knowledgeCutoffDate: "9/2021", imageSupport: false, preferred: false, deprecated: true},
-  "gpt-3.5-turbo-16k-0613": {contextWindowSize: 16385, knowledgeCutoffDate: "9/2021", imageSupport: false, preferred: false, deprecated: true}
+  "gpt-3.5-turbo-16k-0613": {contextWindowSize: 16385, knowledgeCutoffDate: "9/2021", imageSupport: false, preferred: false, deprecated: true},
+  "meta-llama/Meta-Llama-3.1-70B-Instruct": {contextWindowSize: 128000, knowledgeCutoffDate: "12/2023", imageSupport: false, preferred: true, deprecated: false},
+  "meta-llama/Meta-Llama-3.1-405B-Instruct": {contextWindowSize: 32000, knowledgeCutoffDate: "12/2023", imageSupport: false, preferred: true, deprecated: false},
 };

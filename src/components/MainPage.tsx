@@ -270,7 +270,7 @@ const MainPage: React.FC<MainPageProps> = ({className, isSidebarCollapsed, toggl
       startConversation(message, fileDataRef);
     }
     setAllowAutoScroll(true);
-    addMessage(Role.User, MessageType.Normal, message, fileDataRef, sendMessage);
+    addMessage(Role.User, MessageType.Normal, message, fileDataRef, sendMessage); //TODO: check context length in here?
   }
 
   const addMessage = (role: Role, messageType: MessageType, message: string, fileDataRef: FileDataRef[], callback?: (callback: ChatMessage[]) => void) => {

@@ -146,7 +146,7 @@ export class ChatService {
     }
 
     const mappedMessages = await ChatService.mapChatMessagesToCompletionMessages(requestBody.model,messages);
-    let totalCharacters = 0;
+    /*let totalCharacters = 0;
 
     mappedMessages.forEach(message => {
       totalCharacters += message.content.length;
@@ -154,7 +154,7 @@ export class ChatService {
     while ( totalCharacters * (1/Math.E) + 500 > 8000) {
       totalCharacters -= mappedMessages[1].content.length;
       mappedMessages.splice(1, 1);
-    }
+    }*/
     requestBody.messages = mappedMessages;
 
     let response: Response;
